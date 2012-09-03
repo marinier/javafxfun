@@ -5,7 +5,6 @@ import java.io.IOException;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -33,8 +32,10 @@ public class MyApplication extends Application {
 		
 		MyController controller = (MyController) loader.getController();
 		controller.setModel(this.model);
-		primaryStage.setTitle("My Application");
-		primaryStage.setScene(new Scene(controller.getView(), 300,275));
+		primaryStage.setTitle("My JavaFx Application");
+		Scene scene = new Scene(controller.getView(), 400,275);
+		primaryStage.setScene(scene);
+		scene.getStylesheets().add(MyApplication.class.getResource("MyApplication.css").toExternalForm());
 		primaryStage.show();
 		
 		this.SetupSoar();
