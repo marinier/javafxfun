@@ -17,43 +17,65 @@ import org.jsoar.util.commands.SoarCommands;
 
 public class MyApplication extends Application {
 	
-	private static final Object soarSource = MyApplication.class.getResource("load.soar");
-	
 	private ThreadedAgent agent;
 	
+	// the model, which will be connected to a controller and Soar
+	// this doesn't really need to be here; could just create it in start() and pass it around
 	private MyModel model = new MyModel();
-	
 
+	/* 
+	 * This gets called automatically when an FXML application is launched
+	 * This is where the setup happens
+	 */
 	@Override
 	public void start(Stage primaryStage) throws IOException, SoarException, InterruptedException {
 		
+		// load FXML file
 		FXMLLoader loader = new FXMLLoader();
 		loader.load(getClass().getResourceAsStream("MyApplication.fxml"));
 		
+		// the FXML file specifies a controller class, which is automatically instantiated
+		// get the controller instance from the FXML file
 		MyController controller = (MyController) loader.getController();
+		
+		// perform controller setup stuff
 		controller.setModel(this.model);
+		
+		// setup the JavaFX window
 		primaryStage.setTitle("My JavaFx Application");
-		Scene scene = new Scene(controller.getView(), 400,275);
+		Scene scene = new Scene(controller.getView(), 400,275); // get the view from the controller, which is bound to the FXML
 		primaryStage.setScene(scene);
+		// apply a CSS style sheet
 		scene.getStylesheets().add(MyApplication.class.getResource("MyApplication.css").toExternalForm());
 		primaryStage.show();
 		
+		// create the Soar agent, load productions, register output, etc.
 		this.SetupSoar();
-		
 	}
 
+	/*
+	 * application entry
+	 */
 	public static void main(String[] args) {
 		launch(args);
 	}
 	
+	/*
+	 * creates the agent, loads productions, registered an output handler, and launches a debugger
+	 */
 	private void SetupSoar() throws SoarException, InterruptedException {
+		
 		agent = ThreadedAgent.create();
+		
+		// register output handler
 		final SoarBeanOutputManager manager = new SoarBeanOutputManager(agent.getEvents());
 		final SoarBeanOutputHandler<MyCountBean> handler = new SoarBeanOutputHandler<MyCountBean>() {
 			
+			// when we get a count output command, update the model in the JavaFX thread
 			@Override
 			public void handleOutputCommand(SoarBeanOutputContext context, final MyCountBean bean)
 			{
+				// this is the equivalent to Swing's invokeLater
 				Platform.runLater(new Runnable() {
 					@Override
 					public void run() {
@@ -65,7 +87,10 @@ public class MyApplication extends Application {
 		
 		manager.registerHandler("count", handler, MyCountBean.class);
 		
+		// load productions
+		final Object soarSource = MyApplication.class.getResource("load.soar");
 		SoarCommands.source(agent.getInterpreter(), soarSource);
-		agent.openDebuggerAndWait();
+		
+		agent.openDebugger();
 	}
 }

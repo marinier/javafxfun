@@ -14,5 +14,6 @@
 		GridPane.columnIndex="0" GridPane.rowIndex="1"/>
 	<Label fx:id="counterValue"
 		GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+		
 </GridPane>
 
