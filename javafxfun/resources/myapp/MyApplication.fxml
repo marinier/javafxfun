@@ -14,6 +14,11 @@
 		GridPane.columnIndex="0" GridPane.rowIndex="1"/>
 	<Label fx:id="counterValue"
 		GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-		
+	<Button text="Run"     
+        onAction="#handleRunButtonAction"
+        GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <Button text="Stop"     
+        onAction="#handleStopButtonAction"
+        GridPane.columnIndex="1" GridPane.rowIndex="2"/>
 </GridPane>
 

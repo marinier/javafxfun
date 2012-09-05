@@ -17,7 +17,7 @@ import org.jsoar.util.commands.SoarCommands;
 
 public class MyApplication extends Application {
 	
-	private ThreadedAgent agent;
+	private ThreadedAgent agent = ThreadedAgent.create();
 	
 	// the model, which will be connected to a controller and Soar
 	// this doesn't really need to be here; could just create it in start() and pass it around
@@ -39,7 +39,7 @@ public class MyApplication extends Application {
 		MyController controller = (MyController) loader.getController();
 		
 		// perform controller setup stuff
-		controller.setModel(this.model);
+		controller.initialize(this.model, this.agent);
 		
 		// setup the JavaFX window
 		primaryStage.setTitle("My JavaFx Application");
@@ -64,8 +64,6 @@ public class MyApplication extends Application {
 	 * creates the agent, loads productions, registered an output handler, and launches a debugger
 	 */
 	private void SetupSoar() throws SoarException, InterruptedException {
-		
-		agent = ThreadedAgent.create();
 		
 		// register output handler
 		final SoarBeanOutputManager manager = new SoarBeanOutputManager(agent.getEvents());
