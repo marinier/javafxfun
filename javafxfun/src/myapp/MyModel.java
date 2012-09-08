@@ -10,7 +10,7 @@ import javafx.beans.property.SimpleIntegerProperty;
  */
 public class MyModel
 {
-    public IntegerProperty count = new SimpleIntegerProperty();
+    public final IntegerProperty count = new SimpleIntegerProperty();
 
-    public BooleanProperty isRunning = new SimpleBooleanProperty();
+    public final BooleanProperty isRunning = new SimpleBooleanProperty();
 }
