@@ -14,17 +14,13 @@ public class MyController
     // These are automatically bound to elements defined in the FXML file (via
     // reflection)
     // The @FXML annotation is only required if these are not public
-    @FXML
-    protected Parent root;
+    @FXML protected Parent root;
 
-    @FXML
-    protected Label counterValue;
+    @FXML protected Label counterValue;
 
-    @FXML
-    protected Button runButton;
+    @FXML protected Button runButton;
 
-    @FXML
-    protected Button stopButton;
+    @FXML protected Button stopButton;
 
     protected ThreadedAgent agent;
 
