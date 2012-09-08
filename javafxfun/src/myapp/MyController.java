@@ -15,11 +15,8 @@ public class MyController
     // reflection)
     // The @FXML annotation is only required if these are not public
     @FXML protected Parent root;
-
     @FXML protected Label counterValue;
-
     @FXML protected Button runButton;
-
     @FXML protected Button stopButton;
 
     protected ThreadedAgent agent;

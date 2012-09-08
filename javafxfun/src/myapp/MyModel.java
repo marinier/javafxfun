@@ -11,6 +11,5 @@ import javafx.beans.property.SimpleIntegerProperty;
 public class MyModel
 {
     public final IntegerProperty count = new SimpleIntegerProperty();
-
     public final BooleanProperty isRunning = new SimpleBooleanProperty();
 }

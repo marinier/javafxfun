@@ -53,12 +53,12 @@ public class MyApplication extends Application
         // the FXML
         final Scene scene = new Scene(controller.getView(), 400, 275);
         primaryStage.setScene(scene);
-        // apply a CSS style sheet
+        // apply a CSS style sheet to the scene
         scene.getStylesheets().add(
                 MyApplication.class.getResource("MyApplication.css")
                         .toExternalForm());
+        // make the window visible
         primaryStage.show();
-
     }
 
     /*

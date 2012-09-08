@@ -1,9 +1,15 @@
+/*
+ * This file applied by Scene object
+ */
+ 
+ /* put an image in the scene (window) background */
 .root {
 	-fx-background-image: url("soar.png");
 	-fx-background-repeat: no-repeat;
 	-fx-background-position: center top;
 }
 
+/* applies to generic labels */
 .label {
     -fx-font-size: 24px;
     -fx-font-weight: bold;
@@ -11,6 +17,7 @@
     -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
 }
 
+/* applies to the specific label with attribute id="app-label" in FXML file */
 #app-label {
    -fx-font-size: 32px;
    -fx-font-family: "Arial Black";
