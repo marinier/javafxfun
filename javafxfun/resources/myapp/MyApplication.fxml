@@ -5,20 +5,19 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.text.*?>
 
-<GridPane fx:id="root" xmlns:fx="http://javafx.com/fxml" fx:controller="myapp.MyController" alignment="center" hgap="10" vgap="10">
-	<padding><Insets top="10" right="10" bottom="10" left="25"/></padding>
-	<Text id="app-label" text="Counter Agent"
-		GridPane.columnIndex="0" GridPane.rowIndex="0"
-		GridPane.columnSpan="2"/>
-	<Label text="Output:"
-		GridPane.columnIndex="0" GridPane.rowIndex="1"/>
-	<Label fx:id="counterValue"
-		GridPane.columnIndex="1" GridPane.rowIndex="1"/>
-	<Button fx:id="runButton" text="Run"     
-        onAction="#handleRunButtonAction"
-        GridPane.columnIndex="0" GridPane.rowIndex="2"/>
-    <Button fx:id="stopButton" text="Stop"     
-        onAction="#handleStopButtonAction"
-        GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+<GridPane fx:id="root" xmlns:fx="http://javafx.com/fxml"
+	fx:controller="myapp.MyController" alignment="center" hgap="10" vgap="10">
+	<padding>
+		<Insets top="10" right="10" bottom="10" left="25" />
+	</padding>
+	<Text id="app-label" text="Counter Agent" GridPane.columnIndex="0"
+		GridPane.rowIndex="0" GridPane.columnSpan="2" />
+	<Label text="Output:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+	<Label fx:id="counterValue" GridPane.columnIndex="1"
+		GridPane.rowIndex="1" />
+	<Button fx:id="runButton" text="Run" onAction="#handleRunButtonAction"
+		GridPane.columnIndex="0" GridPane.rowIndex="2" />
+	<Button fx:id="stopButton" text="Stop" onAction="#handleStopButtonAction"
+		GridPane.columnIndex="1" GridPane.rowIndex="2" />
 </GridPane>
 
