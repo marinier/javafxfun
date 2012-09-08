@@ -9,11 +9,15 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import org.jsoar.kernel.SoarException;
+import org.jsoar.kernel.events.StartEvent;
+import org.jsoar.kernel.events.StopEvent;
 import org.jsoar.kernel.io.beans.SoarBeanOutputContext;
 import org.jsoar.kernel.io.beans.SoarBeanOutputHandler;
 import org.jsoar.kernel.io.beans.SoarBeanOutputManager;
 import org.jsoar.runtime.ThreadedAgent;
 import org.jsoar.util.commands.SoarCommands;
+import org.jsoar.util.events.SoarEvent;
+import org.jsoar.util.events.SoarEventListener;
 
 public class MyApplication extends Application {
 	
@@ -84,6 +88,36 @@ public class MyApplication extends Application {
 		};
 		
 		manager.registerHandler("count", handler, MyCountBean.class);
+		
+		agent.getEvents().addListener(StartEvent.class,
+				new SoarEventListener() {
+
+					@Override
+					public void onEvent(SoarEvent event) {
+						// this is the equivalent to Swing's invokeLater
+						Platform.runLater(new Runnable() {
+							@Override
+							public void run() {
+								model.isRunning.set(true);
+							}
+						});
+					}
+				});
+		
+		agent.getEvents().addListener(StopEvent.class,
+				new SoarEventListener() {
+
+					@Override
+					public void onEvent(SoarEvent event) {
+						// this is the equivalent to Swing's invokeLater
+						Platform.runLater(new Runnable() {
+							@Override
+							public void run() {
+								model.isRunning.set(false);
+							}
+						});
+					}
+				});
 		
 		// load productions
 		final Object soarSource = MyApplication.class.getResource("load.soar");
