@@ -1,5 +1,5 @@
 jfx.build.stagingdir = ${workspace}/javafxfun/build
 jfx.build.apptitle = javafxfun
-jfx.build.vendorname = Bob
+jfx.build.vendorname = Bob Marinier
 jfx.build.appversion = 0.1
 jfx.build.applicationClass = myapp.MyApplication
