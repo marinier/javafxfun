@@ -27,9 +27,9 @@
 		GridPane.rowIndex="1" />
 	
 	<!-- onAction : method to call in controller -->
-	<Button fx:id="runButton" text="Run" onAction="#handleRunButtonAction"
+	<Button fx:id="runButton" id="green" text="Run" onAction="#handleRunButtonAction"
 		GridPane.columnIndex="0" GridPane.rowIndex="2" />
-	<Button fx:id="stopButton" text="Stop" onAction="#handleStopButtonAction"
+	<Button fx:id="stopButton" id="round-red" text="Stop" onAction="#handleStopButtonAction"
 		GridPane.columnIndex="1" GridPane.rowIndex="2" />
 		
 </GridPane>
