@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!-- stuff in this file created via reflection by FXMLLoader -->
+<!-- stuff in this file instantiated via reflection by FXMLLoader -->
 
 <!-- imports -->
 <?import javafx.geometry.*?>
@@ -9,28 +9,27 @@
 <?import javafx.scene.text.*?>
 
 <!--
-	fx:controller : controller class to instantiate 
-	fx:id : member to bind to in the controller
-	id : name referred to in CSS
+    fx:controller : controller class to instantiate 
+    fx:id : member to bind to in the controller
+    id : name referred to in CSS
 -->
 <GridPane fx:id="root" xmlns:fx="http://javafx.com/fxml"
-	fx:controller="myapp.MyController" alignment="center" hgap="10" vgap="10">
-	<padding>
-		<Insets top="10" right="10" bottom="10" left="25" />
-	</padding>
-	
-	<Text id="app-label" text="Counter Agent" GridPane.columnIndex="0"
-		GridPane.rowIndex="0" GridPane.columnSpan="2" />
-	
-	<Label text="Output:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-	<Label fx:id="counterValue" GridPane.columnIndex="1"
-		GridPane.rowIndex="1" />
-	
-	<!-- onAction : method to call in controller -->
-	<Button fx:id="runButton" id="green" text="Run" onAction="#handleRunButtonAction"
-		GridPane.columnIndex="0" GridPane.rowIndex="2" />
-	<Button fx:id="stopButton" id="round-red" text="Stop" onAction="#handleStopButtonAction"
-		GridPane.columnIndex="1" GridPane.rowIndex="2" />
-		
-</GridPane>
+    fx:controller="myapp.MyController" alignment="center" hgap="10" vgap="10">
+    <padding>
+        <Insets top="10" right="10" bottom="10" left="25" />
+    </padding>
 
+    <Text id="app-label" text="Counter Agent" GridPane.columnIndex="0"
+        GridPane.rowIndex="0" GridPane.columnSpan="2" />
+
+    <Label text="Output:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+    <Label fx:id="counterValue" GridPane.columnIndex="1"
+        GridPane.rowIndex="1" />
+
+    <!-- onAction : method to call in controller -->
+    <Button fx:id="runButton" id="green" text="Run" onAction="#handleRunButtonAction"
+        GridPane.columnIndex="0" GridPane.rowIndex="2" />
+    <Button fx:id="stopButton" id="round-red" text="Stop" onAction="#handleStopButtonAction"
+        GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+</GridPane>

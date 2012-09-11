@@ -4,9 +4,9 @@
  
  /* put an image in the scene (window) background */
 .root {
-	-fx-background-image: url("soar.png");
-	-fx-background-repeat: no-repeat;
-	-fx-background-position: center top;
+    -fx-background-image: url("soar.png");
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center top;
 }
 
 /* applies to generic labels */
