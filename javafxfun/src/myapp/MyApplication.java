@@ -60,6 +60,16 @@ public class MyApplication extends Application
         // make the window visible
         primaryStage.show();
     }
+    
+    /*
+     * This is called when the last JavaFX window closes
+     * Force exit so JSoar Debugger (which is not JavaFX) closes
+     */
+    @Override
+    public void stop() 
+    {
+        System.exit(0);
+    }
 
     /*
      * application entry
