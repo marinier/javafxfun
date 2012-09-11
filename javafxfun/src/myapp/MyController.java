@@ -8,6 +8,11 @@ import javafx.scene.control.Label;
 
 import org.jsoar.runtime.ThreadedAgent;
 
+/**
+ * This class instantiated by FXMLLoader
+ * @author bob.marinier
+ *
+ */
 public class MyController
 {
 
@@ -20,12 +25,6 @@ public class MyController
     @FXML protected Button stopButton;
 
     protected ThreadedAgent agent;
-
-    /*
-     * bind the model to the view label so the view automatically updates when
-     * the model changes basically, this automatically registers for the event
-     * that the model fires also store the agent so we can send commands to it
-     */
 
     /**
      * @param model
@@ -46,7 +45,7 @@ public class MyController
         this.stopButton.disableProperty().bind(model.isRunning.not());
     }
 
-    /*
+    /**
      * returns a scene object we use this to set up the window in Application
      */
     public Parent getView()

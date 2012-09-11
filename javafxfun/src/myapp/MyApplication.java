@@ -19,9 +19,15 @@ import org.jsoar.util.commands.SoarCommands;
 import org.jsoar.util.events.SoarEvent;
 import org.jsoar.util.events.SoarEventListener;
 
+/**
+ * Instantiates model, view (which instantiates controller), Soar agent, etc.,
+ * and wires stuff together 
+ * @author bob.marinier
+ *
+ */
 public class MyApplication extends Application
 {
-    /*
+    /**
      * This gets called automatically when an FXML application is launched This
      * is where the setup happens
      */
@@ -61,7 +67,7 @@ public class MyApplication extends Application
         primaryStage.show();
     }
     
-    /*
+    /**
      * This is called when the last JavaFX window closes
      * Force exit so JSoar Debugger (which is not JavaFX) closes
      */
@@ -71,17 +77,22 @@ public class MyApplication extends Application
         System.exit(0);
     }
 
-    /*
+    /**
      * application entry
+     * @param args
      */
     public static void main(String[] args)
     {
         launch(args);
     }
 
-    /*
+    /**
      * creates the agent, loads productions, registered an output handler, and
      * launches a debugger
+     * @param model : gets updated by Soar events
+     * @return ThreadedAgent on which we register events
+     * @throws SoarException
+     * @throws InterruptedException
      */
     private ThreadedAgent SetupSoar(final MyModel model) throws SoarException,
             InterruptedException
@@ -107,8 +118,8 @@ public class MyApplication extends Application
     }
 
     /**
-     * @param model
-     * @param agent
+     * @param model : gets updated by output event
+     * @param agent : agent on which we register for the output event
      */
     private void setupSoarOutputHandler(final MyModel model,
             final ThreadedAgent agent)
@@ -141,8 +152,8 @@ public class MyApplication extends Application
     }
 
     /**
-     * @param model
-     * @param agent
+     * @param model : gets updated by start/stop events
+     * @param agent : agent on which we register for the start/stop events
      */
     private void setupSoarRunEvents(final MyModel model,
             final ThreadedAgent agent)
