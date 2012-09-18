@@ -28,6 +28,15 @@ import org.jsoar.util.events.SoarEventListener;
 public class MyApplication extends Application
 {
     /**
+     * application entry
+     * @param args
+     */
+    public static void main(String[] args)
+    {
+        launch(args);
+    }
+    
+    /**
      * This gets called automatically when an FXML application is launched This
      * is where the setup happens
      */
@@ -75,15 +84,6 @@ public class MyApplication extends Application
     public void stop() 
     {
         System.exit(0);
-    }
-
-    /**
-     * application entry
-     * @param args
-     */
-    public static void main(String[] args)
-    {
-        launch(args);
     }
 
     /**
